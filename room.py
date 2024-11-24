@@ -1,6 +1,26 @@
 # Define the Room class.
 
 class Room:
+    """
+    La classe Room permet de donner une description de la et le nom de la pièce dans laquelle le joueur se situe et également les différentes sorties possibles
+
+    Attributs : 
+    name : str 
+    description : str 
+    exits : dict 
+
+    Méthodes : 
+    get_exit(self, direction)
+    get_exit_string(self)
+    get_long_description(self)
+
+    Exemples : 
+    >>> 
+
+    >>>
+
+    >>> 
+    """
 
     # Define the constructor. 
     def __init__(self, name, description):
