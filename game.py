@@ -25,7 +25,7 @@ class Game:
         self.commands["help"] = help
         quit = Command("quit", " : quitter le jeu", Actions.quit, 0)
         self.commands["quit"] = quit
-        go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O)", Actions.go, 1)
+        go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, NORD, Nord, nord, E, EST, Est, est, S, SUD, Sud, sud, O, OUEST, Ouest, ouest, U, UP, Up, up, D, DOWN, Down, down)", Actions.go, 1)
         self.commands["go"] = go
         
         # Setup rooms
@@ -42,15 +42,20 @@ class Game:
         self.rooms.append(swamp)
         castle = Room("Castle", "dans un énorme château fort avec des douves et un pont levis. Sur les tours, des flèches en or massif.")
         self.rooms.append(castle)
+        basement = Room("Basement", "dans le sous sol de la maison. D'effroyables bruits proviennent des armoires.")
+        self.rooms.append(basement)
+        cabane = Room("Cabane", "dans une cabane. Les toiles d'araignées remplissent la cabane.")
+        self.rooms.append(cabane)
 
         # Create exits for rooms
+        forest.exits = {"N" : cave, "E" : None, "S" : castle, "O" : None, "U" : cabane, "D" : None}
+        tower.exits = {"N" : cottage, "E" : None, "S" : None, "O" : None, "U" : None, "D" : None}
+        cave.exits = {"N" : None, "E" : cottage, "S" : forest, "O" : None, "U" : None, "D" : None}
+        cottage.exits = {"N" : None, "E" : None, "S" : tower, "O" : cave, "U" : None, "D" : None}
+        swamp.exits = {"N" : tower, "E" : None, "S" : None, "O" : castle, "U" : None, "D" : None}
+        castle.exits = {"N" : forest, "E" : swamp, "S" : None, "O" : None, "U" : None, "D" : basement}
+        basement.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : castle, "D" : None}
 
-        forest.exits = {"N" : cave, "E" : None, "S" : castle, "O" : None}
-        tower.exits = {"N" : cottage, "E" : None, "S" : None, "O" : None}
-        cave.exits = {"N" : None, "E" : cottage, "S" : forest, "O" : None}
-        cottage.exits = {"N" : None, "E" : None, "S" : tower, "O" : cave}
-        swamp.exits = {"N" : tower, "E" : None, "S" : None, "O" : castle}
-        castle.exits = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
 
         # Setup player and starting room
 
@@ -70,14 +75,12 @@ class Game:
     # Process the command entered by the player
     def process_command(self, command_string) -> None:
 
-        # Si le joueur ne rentre pas de commande alors on retourne rien 
-
         # Split the command string into a list of words
         list_of_words = command_string.split(" ")
 
         command_word = list_of_words[0]
 
-        # If the command is not recognized, print an error message
+        # If the command is not recognized, print nothing
         if command_word not in self.commands.keys():
             return      
             
