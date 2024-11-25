@@ -62,7 +62,7 @@ class Actions:
         "S": "S", "SUD": "S", "Sud": "S", "sud": "S",
         "O": "O", "OUEST": "O", "Ouest": "O", "ouest": "O"
         }
-        direction = directions.get(direction, None)
+        direction = directions.get(direction)
         # Move the player in the direction specified by the parameter.
 
         player.move(direction)
