@@ -55,7 +55,7 @@ class Game:
         swamp.exits = {"N" : tower, "E" : None, "S" : None, "O" : castle, "U" : None, "D" : None}
         castle.exits = {"N" : forest, "E" : swamp, "S" : None, "O" : None, "U" : None, "D" : basement}
         basement.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : castle, "D" : None}
-        cabane.exits = {{"N" : None, "E" : None, "S" : None, "O" : None, "U" : None, "D" : forest}
+        cabane.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : None, "D" : forest}
 
 
         # Setup player and starting room

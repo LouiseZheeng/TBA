@@ -61,6 +61,8 @@ class Actions:
         "E": "E", "EST": "E", "Est": "E", "est": "E",
         "S": "S", "SUD": "S", "Sud": "S", "sud": "S",
         "O": "O", "OUEST": "O", "Ouest": "O", "ouest": "O"
+        "D": "D", "DOWN": "D", "Down": "D", "down": "D"
+        "U": "U", "UP": "U", "Up": "U", "up": "U"
         }
         direction = directions.get(direction)
         # Move the player in the direction specified by the parameter.
