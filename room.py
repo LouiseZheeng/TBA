@@ -23,6 +23,24 @@ class Room:
     Sorties: N, E, S
     >>> forest.get_long_description()
     Vous entendez une brise légère à travers la cime des arbres. \n\n Sorties : N, E, S
+    La classe Room permet de donner une description de la et le nom de la pièce dans laquelle le joueur se situe et également les différentes sorties possibles
+
+    Attributs : 
+    name : str 
+    description : str 
+    exits : dict 
+
+    Méthodes : 
+    get_exit(self, direction)
+    get_exit_string(self)
+    get_long_description(self)
+
+    Exemples : 
+    >>> 
+
+    >>>
+
+    >>> 
     """
 
     # Define the constructor. 
