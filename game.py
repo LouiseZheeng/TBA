@@ -25,7 +25,7 @@ class Game:
         self.commands["help"] = help
         quit = Command("quit", " : quitter le jeu", Actions.quit, 0)
         self.commands["quit"] = quit
-        go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O)", Actions.go, 1)
+        go = Command("go", " <direction> : se déplacer dans une direction (N, E, S, O, U, D)", Actions.go, 1)
         self.commands["go"] = go
         
         # Setup rooms
@@ -42,6 +42,10 @@ class Game:
         self.rooms.append(swamp)
         castle = Room("Castle", "dans un énorme château fort avec des douves et un pont levis. Sur les tours, des flèches en or massif.")
         self.rooms.append(castle)
+        basement = Room("Basement", "dans le sous sol de la maison. D'effroyables bruits proviennent des armoires.")
+        self.rooms.append(basement)
+        cabane = Room("Cabane", "dans une cabane. Les toiles d'araignées remplissent la cabane.")
+        self.rooms.append(cabane)
 
         # Create exits for rooms
 
@@ -75,7 +79,7 @@ class Game:
 
         command_word = list_of_words[0]
 
-        # If the command is not recognized, print an error message
+        # If the command is not recognized, print nothing
         if command_word not in self.commands.keys():
             return   
         # If the command is recognized, execute it

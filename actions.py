@@ -55,9 +55,21 @@ class Actions:
 
         # Get the direction from the list of words.
         direction = list_of_words[1]
+
+        directions = {
+        "N": "N", "NORD": "N", "Nord": "N", "nord": "N",
+        "E": "E", "EST": "E", "Est": "E", "est": "E",
+        "S": "S", "SUD": "S", "Sud": "S", "sud": "S",
+        "O": "O", "OUEST": "O", "Ouest": "O", "ouest": "O",
+        "D": "D", "DOWN": "D", "Down": "D", "down": "D",
+        "U": "U", "UP": "U", "Up": "U", "up": "U"
+        }
+        direction = directions.get(direction)
         # Move the player in the direction specified by the parameter.
+
         player.move(direction)
         return True
+
 
     def quit(game, list_of_words, number_of_parameters):
         """

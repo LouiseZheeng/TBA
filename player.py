@@ -1,5 +1,28 @@
 # Define the Player class.
 class Player():
+    """
+    La classe Player permet de gérer le nom du joueur, la pièce dans laquelle il se situe et ses déplacements 
+    entre les différentes pièces.
+
+    Attributs : 
+    name : str              > nom du joueur
+    current_room : Room     > pièce où se trouve le joueur dont la valeur initiale est prédéfinie : None
+
+    Méthodes
+    move(self, direction): 
+    > Le joueur se déplace entre les pièces en indiquant une direction : N, E, O, S grâce au dictionnaire des sorties
+    de la pièce actuelle. Si la prochaine pièce est None alors un message d'erreur est affiché.
+
+    Exemples
+    --------
+    >>> player = Player("LT")
+    >>> player.current_room = Room("Forest", "dans une forêt enchantée. Vous entendez une brise légère à travers la cime des arbres.")
+    >>> player.move("S")
+    Vous êtes dans un énorme château fort avec des douves et un pont levis. Sur les tours, des flèches en or massif.
+    >>> player.move("O")
+    Aucune porte dans cette direction !
+    False
+    """
 
     # Define the constructor.
     def __init__(self, name):
