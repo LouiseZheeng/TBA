@@ -69,10 +69,6 @@ class Actions:
         return True
 
 
-
-
-
-
     def quit(game, list_of_words, number_of_parameters):
         """
         Quit the game.
