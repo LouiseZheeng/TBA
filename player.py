@@ -30,6 +30,14 @@ class Player():
         self.current_room = None
         self.history = []
     
+    def get_history(self,history):
+        get_history = "Vous avez déjà visité les pièces suivantes:\n"
+        for room in self.history:
+            a = "\t -" + room.description + "\n"
+            get_history += a
+        return get_history
+
+
     # Define the move method.
     def move(self, direction):
         # Get the next room from the exits dictionary of the current room.
@@ -50,14 +58,8 @@ class Player():
         # ajouter le dernier lieu visité dans history
         self.history.append(last_current_room)
             # retourne les historiques des rooms visités 
-        print("\n" + self.get_history())
+        print("\n" + self.get_history(self.history))
         return True
-    
-    def get_history(self,history):
-        get_history = "Vous avez déjà visité les pièces suivantes:\n"
-        for room in self.history:
-            a = "-" + room.description + "\n"
-            get_history += a
-        return get_history
+
 
     
