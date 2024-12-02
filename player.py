@@ -28,6 +28,7 @@ class Player():
     def __init__(self, name):
         self.name = name
         self.current_room = None
+        self.history = []
     
     # Define the move method.
     def move(self, direction):
@@ -38,10 +39,20 @@ class Player():
         if next_room is None:
             print("\nAucune porte dans cette direction !\n")
             return False
+
+        # nommer le dernier lieu visité 
+        last_current_room = self.current_room
         
         # Set the current room to the next room.
         self.current_room = next_room
         print(self.current_room.get_long_description())
+
+        # ajouter le dernier lieu visité dans history
+        self.history.append(last_current_room)
+        print("\n" + self.get_history())
+
         return True
+    
+
 
     

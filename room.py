@@ -70,4 +70,12 @@ class Room:
     # Return a long description of this room including exits.
     def get_long_description(self):
         return f"\nVous êtes {self.description}\n\n{self.get_exit_string()}\n"
+    
+     # retourne les historiques des rooms visités 
+    def get_history():
+        history_descriptions = [f"    - {room.get_long_description()}" for i in self.history]
+    return "Vous avez déjà visité les pièces suivantes:\n" + "\n".join(history_descriptions)
+
+    
+
 
